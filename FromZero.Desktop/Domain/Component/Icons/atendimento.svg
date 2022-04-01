@@ -1,0 +1,13 @@
+<svg id="support_agent_black_24dp_1_" data-name="support_agent_black_24dp (1)" xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <g id="Grupo_20" data-name="Grupo 20">
+    <rect id="Retângulo_24" data-name="Retângulo 24" width="60" height="60" fill="none"/>
+  </g>
+  <g id="Grupo_22" data-name="Grupo 22" transform="translate(5 7.5)">
+    <g id="Grupo_21" data-name="Grupo 21">
+      <circle id="Elipse_28" data-name="Elipse 28" cx="2.5" cy="2.5" r="2.5" transform="translate(15 22.5)" fill="#e9e9e9"/>
+      <circle id="Elipse_29" data-name="Elipse 29" cx="2.5" cy="2.5" r="2.5" transform="translate(30 22.5)" fill="#e9e9e9"/>
+      <path id="Caminho_539" data-name="Caminho 539" d="M35.992,18.575a15.1,15.1,0,0,0-29.95,3.55A20.187,20.187,0,0,0,18.192,7.4,20.093,20.093,0,0,0,35.992,18.575Z" transform="translate(4.008 1.5)" fill="#e9e9e9"/>
+      <path id="Caminho_540" data-name="Caminho 540" d="M49.475,25.5A22.466,22.466,0,0,0,27,3C15.475,3,4.875,11.825,4.525,25.5H2v15H9.5V25.975C9.5,16.4,16.875,8.025,26.45,7.75A17.518,17.518,0,0,1,44.5,25.25V43h-20v5h25V40.5H52v-15Z" transform="translate(-2 -3)" fill="#e9e9e9"/>
+    </g>
+  </g>
+</svg>

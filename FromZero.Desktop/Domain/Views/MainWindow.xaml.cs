@@ -76,8 +76,8 @@ namespace FromZero.Desktop
             Button button = sender as Button;
             string imageName = button.Tag.ToString().Replace(ButtonDefault.ButtonPrefix, ButtonDefault.ButtonImagePrefix);
 
-            SvgHelper img = this.FindVisualChilds<SvgHelper>().Where(x => x.Tag != null && x.Tag.ToString() == imageName).First();
-            img.Fill = new SolidColorBrush(Colors.White);
+            SvgViewbox img = this.FindVisualChilds<SvgViewbox>().Where(x => x.Tag != null && x.Tag.ToString() == imageName).First();
+            img.ChangeFill(new SolidColorBrush(Colors.White));
         }
 
         protected void ButtonHighLightOff(object sender, RoutedEventArgs e)
@@ -85,8 +85,8 @@ namespace FromZero.Desktop
             Button button = sender as Button;
             string imageName = button.Tag.ToString().Replace(ButtonDefault.ButtonPrefix, ButtonDefault.ButtonImagePrefix);
 
-            SvgHelper img = this.FindVisualChilds<SvgHelper>().Where(x => x.Tag != null && x.Tag.ToString() == imageName).First();
-            img.Fill = new SolidColorBrush(Colors.LightGray);
+            SvgViewbox img = this.FindVisualChilds<SvgViewbox>().Where(x => x.Tag != null && x.Tag.ToString() == imageName).First();
+            img.ChangeFill(new SolidColorBrush(Colors.LightGray));
         }
 
         #endregion
@@ -112,11 +112,11 @@ namespace FromZero.Desktop
 
         private void MosaicChangeTheme()
         {
-            foreach (SvgHelper img in this.FindVisualChilds<SvgHelper>())
+            foreach (SvgViewbox img in this.FindVisualChilds<SvgViewbox>())
             {
                 if (img.Tag != null && img.Tag.ToString().Contains(ButtonDefault.MosaicButtonImagePrefix))
                 {
-                    img.Fill = ViewModel.CurrentTheme.IconImageColor;
+                    img.ChangeFill(ViewModel.CurrentTheme.IconImageColor);
                 }
             }
 
@@ -139,8 +139,8 @@ namespace FromZero.Desktop
 
         private void MosaicDisable(MosaicItem item, bool isEnabled)
         {
-            SvgHelper img = this.FindVisualChilds<SvgHelper>().Where(x => x.Tag != null && x.Tag.ToString() == item.TagImage).First();
-            img.Fill = isEnabled ? ViewModel.CurrentTheme.IconImageColor : ViewModel.CurrentTheme.IconImageDisabledColor;
+            SvgViewbox img = this.FindVisualChilds<SvgViewbox>().Where(x => x.Tag != null && x.Tag.ToString() == item.TagImage).First();
+            img.ChangeFill(isEnabled ? ViewModel.CurrentTheme.IconImageColor : ViewModel.CurrentTheme.IconImageDisabledColor);
 
             Border bkg = this.FindVisualChilds<Border>().Where(x => x.Tag != null && x.Tag.ToString() == item.TagBackground).First();
             bkg.Background = isEnabled ? ViewModel.CurrentTheme.IconBackgroundColor : ViewModel.CurrentTheme.IconBackgroundDisabledColor;
@@ -155,8 +155,8 @@ namespace FromZero.Desktop
         {
             if (item.IsFiltered && item.IsUserEnabled)
             {
-                SvgHelper img = this.FindVisualChilds<SvgHelper>().Where(x => x.Tag != null && x.Tag.ToString() == item.TagImage).First();
-                img.Fill = isOn ? ViewModel.CurrentTheme.IconImageHighlightColor : ViewModel.CurrentTheme.IconImageColor;
+                SvgViewbox img = this.FindVisualChilds<SvgViewbox>().Where(x => x.Tag != null && x.Tag.ToString() == item.TagImage).First();
+                img.ChangeFill(isOn ? ViewModel.CurrentTheme.IconImageHighlightColor : ViewModel.CurrentTheme.IconImageColor);
 
                 Border bkg = this.FindVisualChilds<Border>().Where(x => x.Tag != null && x.Tag.ToString() == item.TagBackground).First();
                 bkg.Background = isOn ? ViewModel.CurrentTheme.IconBackgroundHighlightColor : ViewModel.CurrentTheme.IconBackgroundColor;

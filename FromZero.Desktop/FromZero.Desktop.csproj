@@ -26,11 +26,14 @@
     <None Remove="Domain\Component\Icons\relatorios.svg" />
     <None Remove="Domain\Component\Icons\supervisao.svg" />
     <None Remove="Domain\Component\Icons\web_aia.svg" />
+    <None Remove="Domain\Component\Resources\background_cabecalho.png" />
+    <None Remove="Domain\Component\Resources\background_cabecalho.svg" />
     <None Remove="Domain\Component\Resources\logout.svg" />
     <None Remove="Domain\Component\Resources\menu.png" />
     <None Remove="Domain\Component\Resources\menu.svg" />
     <None Remove="Domain\Component\Resources\policia_logo.svg" />
     <None Remove="Domain\Component\Resources\siopm_logo.svg" />
+    <None Remove="Domain\Component\User\User.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -96,6 +99,12 @@
     <Resource Include="Domain\Component\Icons\web_aia.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Domain\Component\Resources\background_cabecalho.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Domain\Component\Resources\background_cabecalho.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Domain\Component\Resources\logout.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -109,6 +118,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Domain\Component\Resources\siopm_logo.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Domain\Component\User\User.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

@@ -1,4 +1,5 @@
-﻿using FromZero.Desktop.Domain.Helpers;
+﻿using FromZero.Desktop.Domain.Constants;
+using FromZero.Desktop.Domain.Helpers;
 using FromZero.Desktop.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,9 @@ namespace FromZero.Desktop.Domain.ViewModels
 {
     public class MainWindowViewModel : MasterViewModel
     {
+        public User CurrentUser { get; set; }
+
         public ObservableCollection<MosaicItem> MosaicItems { get; set; }
-        public ObservableCollection<MenuItem> MenuItems { get; set; }
 
         public MainWindowViewModel()
         {
@@ -33,14 +35,12 @@ namespace FromZero.Desktop.Domain.ViewModels
             MosaicItems.Add(new MosaicItem("COPOM Online", "", "copom_online.svg", 14));
             MosaicItems.Add(new MosaicItem("Mapa Força", "", "mapa_forca.svg", 15));
 
-            MenuItems = new();
-            MenuItems.Add(new MenuItem("Menu 1", "Menu numero 1", 1));
-            MenuItems.Add(new MenuItem("Menu 2", "Menu numero 2", 1));
-            MenuItems.Add(new MenuItem("Menu 3", "Menu numero 3", 1));
-            MenuItems.Add(new MenuItem("Menu 4", "Menu numero 4", 1));
-
             MosaicItems.BuildPositions(columns: 6);
             MosaicItems.AdjustTitles(maxlength: 20);
+
+            CurrentUser = new("SOUZA", "000.000.000-00", "1. TEN PM", "8.BPM/M");
+
+            CurrentTheme = new(ThemeType.White);
         }
     }
 }

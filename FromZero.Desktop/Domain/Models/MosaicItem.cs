@@ -1,4 +1,6 @@
-﻿namespace FromZero.Desktop.Domain.Models
+﻿using FromZero.Desktop.Domain.Constants;
+
+namespace FromZero.Desktop.Domain.Models
 {
     public class MosaicItem
     {
@@ -11,8 +13,13 @@
         public int Row { get; set; }
         public int Column { get; set; }
 
-        public string ButtonName { get { return "btnMosaicItem" + IconIndex; } }
-        public string ImageName { get { return "imgMosaicItem" + IconIndex; } }
+        public bool IsUserEnabled { get; set; }
+        public bool IsFiltered { get; set; }
+
+        public string TagButton { get { return ButtonDefault.MosaicButtonPrefix + "MosaicItem" + IconIndex; } }
+        public string TagImage { get { return ButtonDefault.MosaicButtonImagePrefix + "MosaicItem" + IconIndex; } }
+        public string TagBackground { get { return ButtonDefault.MosaicButtonBackgroundPrefix + "MosaicItem" + IconIndex; } }
+        public string TagLabel { get { return ButtonDefault.MosaicButtonLabelPrefix + "MosaicItem" + IconIndex; } }
 
         public MosaicItem(string title, string description, string icon, int iconIndex)
         {
@@ -20,6 +27,9 @@
             Description = description;
             Icon = @"/Domain/Component/Icons/" + icon;
             IconIndex = iconIndex;
+
+            IsUserEnabled = true;
+            IsFiltered = true;            
         }
     }
 }

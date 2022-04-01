@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="84" viewBox="0 0 1920 84">
+  <defs>
+    <filter id="Backgroundo_preto" x="-15" y="-12" width="1950" height="121" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-color="#747474" flood-opacity="0.49"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="0.227" y1="-0.146" x2="0.242" y2="0.916" gradientUnits="objectBoundingBox">
+      <stop offset="0"/>
+      <stop offset="1" stop-color="#272727"/>
+    </linearGradient>
+    <clipPath id="clip-_5_1_atendimento_2">
+      <rect width="1920" height="84"/>
+    </clipPath>
+  </defs>
+  <g id="_5_1_atendimento_2" data-name="5_1_atendimento – 2" clip-path="url(#clip-_5_1_atendimento_2)">
+    <rect width="1920" height="84" fill="#dbdbdb"/>
+    <g id="Header">
+      <g id="Background_header" data-name="Background header">
+        <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Backgroundo_preto)">
+          <rect id="Backgroundo_preto-2" data-name="Backgroundo preto" width="1920" height="91" fill="#343434"/>
+        </g>
+        <path id="Caminho_8301" data-name="Caminho 8301" d="M1.916,118.985,583.083-8.146H1920V117.173Z" transform="translate(0 -27.985)" fill="url(#linear-gradient)"/>
+      </g>
+    </g>
+  </g>
+</svg>

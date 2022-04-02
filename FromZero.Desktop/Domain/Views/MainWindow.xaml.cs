@@ -27,10 +27,13 @@ namespace FromZero.Desktop
     {
         private MainWindowViewModel ViewModel;
 
+        #region Window
+
         public MainWindow()
         {
             InitializeComponent();
             Loaded += MainWindowLoaded;
+            ContentRendered += MainWindowContentRendered;
         }
 
         private void MainWindowLoaded(object sender, RoutedEventArgs e)
@@ -38,11 +41,20 @@ namespace FromZero.Desktop
             ViewModel = new MainWindowViewModel();
             DataContext = ViewModel;
 
-            LoadMosaic();
             LoadUser();
+            LoadMosaic();
 
             bodyMainWindow.Background = ViewModel.CurrentTheme.BackgroundColor;
         }
+
+        private void MainWindowContentRendered(object? sender, EventArgs e)
+        {
+            MosaicFilter();
+        }
+
+        #endregion
+
+        #region Load
 
         private void LoadMosaic()
         {
@@ -56,18 +68,20 @@ namespace FromZero.Desktop
 
         private void LoadUser()
         {
-            SetUserOnlineMode(true);
+            SetUserOnlineMode(false); //Fixo, diz se esta online ou não
 
             ViewModel.CurrentUser = new("SOUZA", "000.000.000-00", "1. TEN PM", "8.BPM/M");
             ViewModel.CurrentTheme = new(ThemeType.White);
         }
 
+        #endregion
+
+        #region UserControl
+
         private void UserMenuToggle(object sender, RoutedEventArgs e)
         {
             drpMenu.Toggle();
         }
-
-        #region UserControl
 
         private void SetUserOnlineMode(bool isOnline)
         {

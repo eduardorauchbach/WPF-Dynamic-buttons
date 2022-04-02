@@ -72,7 +72,7 @@
     <Resource Include="Domain\Component\Icons\gerenciamento_de_usuarios_e_apps.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Domain\Component\Icons\icone_modo_noturno.svg">
+    <Resource Include="Domain\Component\Resources\icone_modo_noturno.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Domain\Component\Icons\mapa_forca.svg">
@@ -114,10 +114,10 @@
     <Resource Include="Domain\Component\Resources\pesquisa.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Domain\Component\Resources\policia_logo.svg">
+    <Resource Include="Domain\Component\Logos\policia_logo.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Domain\Component\Resources\siopm_logo.svg">
+    <Resource Include="Domain\Component\Logos\siopm_logo.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Domain\Component\User\User.png">

@@ -135,6 +135,11 @@ namespace FromZero.Desktop
 
         #region Mosaic
 
+        private bool IsMosaicItemEnable(MosaicItem item)
+        {
+            return item.IsFiltered && item.IsUserEnabled && (ViewModel.isOnline ? true : item.IsOfflineEnabled);
+        }
+
         private void MosaicFilter()
         {
             foreach (MosaicItem item in ViewModel.MosaicItems)
@@ -148,7 +153,7 @@ namespace FromZero.Desktop
                     item.IsFiltered = false;
                 }
 
-                MosaicDisable(item, item.IsFiltered && item.IsUserEnabled);
+                MosaicDisable(item, IsMosaicItemEnable(item));
             }
         }
 
@@ -195,7 +200,7 @@ namespace FromZero.Desktop
 
         private void MosaicHighlight(MosaicItem item, bool isOn)
         {
-            if (item.IsFiltered && item.IsUserEnabled)
+            if (IsMosaicItemEnable(item))
             {
                 SvgViewbox img = this.FindVisualChilds<SvgViewbox>().Where(x => x.Tag != null && x.Tag.ToString() == item.TagImage).First();
                 img.ChangeFill(isOn ? ViewModel.CurrentTheme.IconImageHighlightColor : ViewModel.CurrentTheme.IconImageColor);

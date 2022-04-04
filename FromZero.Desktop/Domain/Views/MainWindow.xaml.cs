@@ -4,28 +4,19 @@ using FromZero.Desktop.Domain.Models;
 using FromZero.Desktop.Domain.ViewModels;
 using SharpVectors.Converters;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace FromZero.Desktop
+namespace FromZero.Desktop.Domain.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainWindowViewModel ViewModel;
+        private MainWindowViewModel _viewModel;
 
         #region Window
 
@@ -38,40 +29,36 @@ namespace FromZero.Desktop
 
         private void MainWindowLoaded(object sender, RoutedEventArgs e)
         {
-            ViewModel = new MainWindowViewModel();
-            DataContext = ViewModel;
+            _viewModel = new MainWindowViewModel();
+            DataContext = _viewModel;
 
             LoadUser();
-            LoadMosaic();
-
-            bodyMainWindow.Background = ViewModel.CurrentTheme.BackgroundColor;
+            LoadDefault();
         }
 
         private void MainWindowContentRendered(object? sender, EventArgs e)
         {
-            MosaicFilter();
+            bodyMainWindow.Background = _viewModel.GlobalProperties.CurrentTheme.BackgroundColor;
         }
 
         #endregion
 
         #region Load
 
-        private void LoadMosaic()
+        private void LoadDefault()
         {
-            ViewModel.MosaicItems = new(MosaicDefault.items);
+            _viewModel.GlobalProperties.CurrentControl = new MosaicMenu();
+            _viewModel.GlobalProperties.CurrentControl.DataContext = new MosaicMenuViewModel(_viewModel);
 
-            ViewModel.MosaicItems.BuildPositions(columns: 6);
-            ViewModel.MosaicItems.AdjustTitles(maxlength: 20);
-
-            MosaicChangeTheme();
+            contentMainWindow.Content = _viewModel.GlobalProperties.CurrentControl;
         }
 
         private void LoadUser()
         {
-            SetUserOnlineMode(false); //Fixo, diz se esta online ou não
+            SetUserOnlineMode(true); //Fixo, diz se esta online ou não
 
-            ViewModel.CurrentUser = new("SOUZA", "000.000.000-00", "1. TEN PM", "8.BPM/M");
-            ViewModel.CurrentTheme = new(ThemeType.White);
+            _viewModel.GlobalProperties.CurrentUser = new("SOUZA", "000.000.000-00", "1. TEN PM", "8.BPM/M");
+            _viewModel.GlobalProperties.CurrentTheme = new(ThemeType.White);
         }
 
         #endregion
@@ -85,7 +72,7 @@ namespace FromZero.Desktop
 
         private void SetUserOnlineMode(bool isOnline)
         {
-            ViewModel.isOnline = isOnline;
+            _viewModel.GlobalProperties.IsOnline = isOnline;
 
             if (isOnline)
             {
@@ -103,24 +90,29 @@ namespace FromZero.Desktop
 
         #region Global Theme
 
-        protected void ChangeTheme(object sender, RoutedEventArgs e)
+        protected void ChangeTheme()
         {
-            if (ViewModel.CurrentTheme.ActiveTheme == ThemeType.White)
+            if (_viewModel.GlobalProperties.CurrentTheme.ActiveTheme == ThemeType.White)
             {
-                ViewModel.CurrentTheme.SetTheme(ThemeType.Black);
+                _viewModel.GlobalProperties.CurrentTheme.SetTheme(ThemeType.Black);
                 btnDayMode.Visibility = Visibility.Visible;
                 btnNightMode.Visibility = Visibility.Collapsed;
             }
             else
             {
-                ViewModel.CurrentTheme.SetTheme(ThemeType.White);
+                _viewModel.GlobalProperties.CurrentTheme.SetTheme(ThemeType.White);
                 btnDayMode.Visibility = Visibility.Collapsed;
                 btnNightMode.Visibility = Visibility.Visible;
             }
 
-            bodyMainWindow.Background = ViewModel.CurrentTheme.BackgroundColor;
-            MosaicChangeTheme();
-            MosaicFilter();
+            bodyMainWindow.Background = _viewModel.GlobalProperties.CurrentTheme.BackgroundColor;
+            _viewModel.GlobalProperties.CurrentControl.SetTheme();
+        }
+
+        //Events
+        protected void ChangeTheme(object sender, RoutedEventArgs e)
+        {
+            ChangeTheme();
         }
 
         #endregion
@@ -143,110 +135,6 @@ namespace FromZero.Desktop
 
             SvgViewbox img = this.FindVisualChilds<SvgViewbox>().Where(x => x.Tag != null && x.Tag.ToString() == imageName).First();
             img.ChangeFill(new SolidColorBrush(Colors.LightGray));
-        }
-
-        #endregion
-
-        #region Mosaic
-
-        private bool IsMosaicItemEnable(MosaicItem item)
-        {
-            return item.IsFiltered && item.IsUserEnabled && (ViewModel.isOnline ? true : item.IsOfflineEnabled);
-        }
-
-        private void MosaicFilter()
-        {
-            foreach (MosaicItem item in ViewModel.MosaicItems)
-            {
-                if ((item.Title + item.Title2).ToUpper().Contains(txtMosaicFilter.Text.ToUpper()))
-                {
-                    item.IsFiltered = true;
-                }
-                else
-                {
-                    item.IsFiltered = false;
-                }
-
-                MosaicDisable(item, IsMosaicItemEnable(item));
-            }
-        }
-
-        private void MosaicChangeTheme()
-        {
-            foreach (SvgViewbox img in this.FindVisualChilds<SvgViewbox>())
-            {
-                if (img.Tag != null && img.Tag.ToString().Contains(ButtonDefault.MosaicButtonImagePrefix))
-                {
-                    img.ChangeFill(ViewModel.CurrentTheme.IconImageColor);
-                }
-            }
-
-            foreach (Border bkg in this.FindVisualChilds<Border>())
-            {
-                if (bkg.Tag != null && bkg.Tag.ToString().Contains(ButtonDefault.MosaicButtonBackgroundPrefix))
-                {
-                    bkg.Background = ViewModel.CurrentTheme.IconBackgroundColor;
-                }
-            }
-
-            foreach (TextBlock lbl in this.FindVisualChilds<TextBlock>())
-            {
-                if (lbl.Tag != null && lbl.Tag.ToString().Contains(ButtonDefault.MosaicButtonLabelPrefix))
-                {
-                    lbl.Foreground = ViewModel.CurrentTheme.IconBackgroundColor;
-                }
-            }
-        }
-
-        private void MosaicDisable(MosaicItem item, bool isEnabled)
-        {
-            SvgViewbox img = this.FindVisualChilds<SvgViewbox>().Where(x => x.Tag != null && x.Tag.ToString() == item.TagImage).First();
-            img.ChangeFill(isEnabled ? ViewModel.CurrentTheme.IconImageColor : ViewModel.CurrentTheme.IconImageDisabledColor);
-
-            Border bkg = this.FindVisualChilds<Border>().Where(x => x.Tag != null && x.Tag.ToString() == item.TagBackground).First();
-            bkg.Background = isEnabled ? ViewModel.CurrentTheme.IconBackgroundColor : ViewModel.CurrentTheme.IconBackgroundDisabledColor;
-
-            foreach (TextBlock lbl in this.FindVisualChilds<TextBlock>().Where(x => x.Tag != null && x.Tag.ToString() == item.TagLabel))
-            {
-                lbl.Foreground = isEnabled ? ViewModel.CurrentTheme.IconBackgroundColor : ViewModel.CurrentTheme.IconBackgroundDisabledColor;
-            }
-        }
-
-        private void MosaicHighlight(MosaicItem item, bool isOn)
-        {
-            if (IsMosaicItemEnable(item))
-            {
-                SvgViewbox img = this.FindVisualChilds<SvgViewbox>().Where(x => x.Tag != null && x.Tag.ToString() == item.TagImage).First();
-                img.ChangeFill(isOn ? ViewModel.CurrentTheme.IconImageHighlightColor : ViewModel.CurrentTheme.IconImageColor);
-
-                Border bkg = this.FindVisualChilds<Border>().Where(x => x.Tag != null && x.Tag.ToString() == item.TagBackground).First();
-                bkg.Background = isOn ? ViewModel.CurrentTheme.IconBackgroundHighlightColor : ViewModel.CurrentTheme.IconBackgroundColor;
-            }
-        }
-
-
-        //Events
-
-
-        private void MosaicFilterTrigger(object sender, KeyEventArgs e)
-        {
-            MosaicFilter();
-        }
-
-        protected void MosaicHighlightOnTrigger(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            MosaicItem item = ViewModel.MosaicItems.Where(x => x.TagButton == button.Tag.ToString()).First();
-
-            MosaicHighlight(item, true);
-        }
-
-        protected void MosaicHighlightOffTrigger(object sender, RoutedEventArgs e)
-        {
-            Button button = sender as Button;
-            MosaicItem item = ViewModel.MosaicItems.Where(x => x.TagButton == button.Tag.ToString()).First();
-
-            MosaicHighlight(item, false);
         }
 
         #endregion

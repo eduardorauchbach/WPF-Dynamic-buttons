@@ -1,4 +1,5 @@
 ﻿using FromZero.Desktop.Domain.Constants;
+using static FromZero.Desktop.Domain.Constants.MosaicDefault;
 
 namespace FromZero.Desktop.Domain.Models
 {
@@ -7,6 +8,7 @@ namespace FromZero.Desktop.Domain.Models
         public string Title { get; set; }
         public string? Title2 { get; set; }
         public string Description { get; set; }
+        public MosaicTargets Target { get; set; }
         public string Icon { get; set; }
         public int IconIndex { get; set; }
 
@@ -22,14 +24,16 @@ namespace FromZero.Desktop.Domain.Models
         public string TagBackground { get { return ButtonDefault.MosaicButtonBackgroundPrefix + "MosaicItem" + IconIndex; } }
         public string TagLabel { get { return ButtonDefault.MosaicButtonLabelPrefix + "MosaicItem" + IconIndex; } }
 
-        public MosaicItem(string title, string description, string icon, bool isOfflineEnabled, int iconIndex)
+        public MosaicItem(MosaicTargets target, string title, string description, string icon, bool isOfflineEnabled, int iconIndex)
         {
+            Target = target;
+
             Title = title;
             Description = description;
             Icon = @"/Domain/Component/Icons/" + icon;
 
             IsUserEnabled = true;
-            IsFiltered = true;         
+            IsFiltered = true;
             IsOfflineEnabled = isOfflineEnabled;
 
             IconIndex = iconIndex;

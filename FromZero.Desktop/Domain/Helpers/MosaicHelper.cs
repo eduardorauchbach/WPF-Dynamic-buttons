@@ -1,14 +1,11 @@
 ﻿using FromZero.Desktop.Domain.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FromZero.Desktop.Domain.Helpers
 {
-    internal static class MenuHelper
+    internal static class MosaicHelper
     {
         /// <summary>
         /// reorder and fill row and collum based on the IconIndex

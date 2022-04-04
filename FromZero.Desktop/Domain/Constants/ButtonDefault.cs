@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FromZero.Desktop.Domain.Constants
+﻿namespace FromZero.Desktop.Domain.Constants
 {
     public static class ButtonDefault
     {

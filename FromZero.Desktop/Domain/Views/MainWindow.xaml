@@ -3,34 +3,21 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FromZero.Desktop.Domain.Views" 
+        xmlns:local="clr-namespace:FromZero.Desktop.Domain.Helpers" 
         xmlns:svgc="http://sharpvectors.codeplex.com/svgc/" 
         mc:Ignorable="d"
         Title="MainWindow" Height="550" Width="1100">
     <UserControl>
         <Grid Name="bodyMainWindow">
-            <Grid VerticalAlignment="Top" Height="70" Panel.ZIndex="20">
+            <Grid VerticalAlignment="Top" Height="80" Panel.ZIndex="20">
                 <!--<Grid.Background>
                 <ImageBrush Stretch="Fill" ImageSource="Domain/Component/Resources/menu.svg"
                 AlignmentY="Top" AlignmentX="Center"/>
             </Grid.Background>-->
-                <svgc:SvgCanvas HorizontalAlignment="Left" VerticalAlignment="Center" Height="40"  Source="/Domain/Component/Logos/siopm_logo.svg" Margin="90,5,0,0" >
-                    <svgc:SvgCanvas.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleX="0.4" ScaleY="0.4"/>
-                            <SkewTransform/>
-                            <RotateTransform/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </svgc:SvgCanvas.RenderTransform>
-                </svgc:SvgCanvas>
-                <svgc:SvgCanvas HorizontalAlignment="Left" VerticalAlignment="Center" Height="60"  Source="/Domain/Component/Logos/policia_logo.svg" Margin="10,5,0,0" >
-                    <svgc:SvgCanvas.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform ScaleX="0.25" ScaleY="0.25"/>
-                        </TransformGroup>
-                    </svgc:SvgCanvas.RenderTransform>
-                </svgc:SvgCanvas>
+                <Image Source="{Binding Converter={svgc:SvgImageConverter AppName=FromZero.Desktop}, ConverterParameter=/Domain/Component/Logos/siopm_logo.svg}"
+                       HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Margin="90,5,0,0"/>
+                <Image Source="{Binding Converter={svgc:SvgImageConverter AppName=FromZero.Desktop}, ConverterParameter=/Domain/Component/Logos/policia_logo.svg}"
+                       HorizontalAlignment="Left" VerticalAlignment="Center" Height="60" Margin="10,5,0,0"/>
                 <!--User Logo-->
                 <Grid Panel.ZIndex="40" HorizontalAlignment="Right" VerticalAlignment="Center" Height="50" Width="50" Margin="0, 5, 230, 0" >
                     <Border VerticalAlignment="Center" HorizontalAlignment="Center" Height="46" Width="46" Background="Gray" CornerRadius="50"  Panel.ZIndex="10"></Border>
@@ -51,26 +38,17 @@
                     <Label VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="{Binding GlobalProperties.CurrentUser.PostLocation}" Foreground="LightGray" FontSize="11" FontWeight="Bold"></Label>
                 </Grid>
                 <!--Menu Button-->
-                <Grid Panel.ZIndex="10" HorizontalAlignment="Right" VerticalAlignment="Center" Height="40" Width="70" SnapsToDevicePixels="True" Margin="0, 10, 30, 0">
-                    <Button Tag="btn__Menu" HorizontalAlignment="Right" VerticalAlignment="Center" Background="Transparent" Height="40" Width="70" 
+                <Grid Panel.ZIndex="10" HorizontalAlignment="Right" VerticalAlignment="Center" Height="40" Width="50" SnapsToDevicePixels="True" Margin="0, 0, 30, 0">
+                    <Button Tag="btn__Menu" HorizontalAlignment="Right" VerticalAlignment="Center" Background="Transparent" Height="40" Width="50" 
                         MouseEnter="ButtonHighLightOn" MouseLeave="ButtonHighLightOff" Click="UserMenuToggle" BorderThickness="0,0,0,0" Panel.ZIndex="100">
                     </Button>
-                    <ContentControl Width="40" Height="40">
+                    <ContentControl Width="40" Height="50">
                         <svgc:SvgViewbox Tag="btnImg__Menu" Source="/Domain/Component/Resources/menu.svg" ></svgc:SvgViewbox>
                     </ContentControl>
                 </Grid>
-                <ContentControl VerticalAlignment="Top" Panel.ZIndex="-1">
-                    <svgc:SvgCanvas Source="/Domain/Component/Resources/background_cabecalho.svg" >
-                        <svgc:SvgCanvas.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform ScaleY="0.9"/>
-                                <SkewTransform/>
-                                <RotateTransform/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </svgc:SvgCanvas.RenderTransform>
-                    </svgc:SvgCanvas>
-                </ContentControl>
+                <Image Source="{Binding Converter={svgc:SvgImageConverter AppName=FromZero.Desktop}, ConverterParameter=/Domain/Component/Resources/background_cabecalho.svg}"
+                       HorizontalAlignment="Left" VerticalAlignment="top" Panel.ZIndex="-1" Stretch="Fill">
+                </Image>
             </Grid>
             <!--Menu-->
             <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Background="white" Margin="0,75,30,0" 

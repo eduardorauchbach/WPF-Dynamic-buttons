@@ -3,11 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:FromZero.Desktop.Domain.Views"
+             xmlns:local="clr-namespace:FromZero.Desktop.Domain.Views" xmlns:helpers="clr-namespace:FromZero.Desktop.Domain.Helpers"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid x:Name="mainGrid">
-        <TextBlock x:Name="txtDemo"></TextBlock>
-        <Button Click="Button_Click" Width="100" Height="100" Content="Voltar" />
+    <Grid Margin="0 80 0 0">
+        <Grid HorizontalAlignment="Left" VerticalAlignment="top" Width="200" >
+            <Label Tag="Theme" Content="COPOM" FontWeight="Bold"></Label>
+            <ComboBox Name="drpCopom" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="5 30 0 0" Style="{StaticResource StyleComboDefault}" IsEditable="True" Text="Selecione...">
+                <ComboBoxItem>ComboBox Item #1</ComboBoxItem>
+                <ComboBoxItem>ComboBox Item #2</ComboBoxItem>
+                <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="top" Width="200" Margin="200 0 0 0">
+            <Label Tag="Theme" Content="Serviço" FontWeight="Bold"></Label>
+            <ComboBox Name="drpServico" HorizontalAlignment="Left" VerticalAlignment="Top" Width="180" Margin="5 30 0 0" Style="{StaticResource StyleComboDefault}" IsEditable="True" Text="Selecione...">
+                <ComboBoxItem>ComboBox Item #1</ComboBoxItem>
+                <ComboBoxItem>ComboBox Item #2</ComboBoxItem>
+                <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="top" Width="220" Margin="400 0 0 0">
+            <Label Tag="Theme" Content="Posição de atendimento (P.A)" FontWeight="Bold"></Label>
+            <ComboBox Name="drpPosicaoAtendimento" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="5 30 0 0" Style="{StaticResource StyleComboDefault}" IsEditable="True" Text="Selecione...">
+                <ComboBoxItem>ComboBox Item #1</ComboBoxItem>
+                <ComboBoxItem>ComboBox Item #2</ComboBoxItem>
+                <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="top" Width="160" Margin="630 0 0 0">
+            <Button Tag="Theme" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 30 0 0" Height="25" Width="100"
+                    Background="#343434" Foreground="#E9E9E9" BorderThickness="0" Click="Commit" Content="Verificar" FontWeight="Bold" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="2"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+
+        <Button Tag="Theme" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 160 0 0" Height="25" Width="100"
+                    Background="#343434" Foreground="#E9E9E9" BorderThickness="0" Click="Button_Click" Content="Voltar" FontWeight="Bold" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </UserControl>

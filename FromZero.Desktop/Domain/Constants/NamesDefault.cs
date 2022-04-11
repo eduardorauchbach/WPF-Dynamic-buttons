@@ -1,6 +1,6 @@
 ﻿namespace FromZero.Desktop.Domain.Constants
 {
-    public static class ButtonDefault
+    public static class NamesDefault
     {
         public const string ButtonPrefix = "btn__";
         public const string ButtonImagePrefix = "btnImg__";
@@ -11,5 +11,7 @@
         public const string MosaicButtonImagePrefix = "mosImg__";
         public const string MosaicButtonBackgroundPrefix = "mosBkg__";
         public const string MosaicButtonLabelPrefix = "mosLbl__";
+
+        public const string ThemeTag = "Theme";
     }
 }

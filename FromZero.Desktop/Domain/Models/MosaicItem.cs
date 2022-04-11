@@ -19,10 +19,10 @@ namespace FromZero.Desktop.Domain.Models
         public bool IsOfflineEnabled { get; set; }
         public bool IsFiltered { get; set; }
 
-        public string TagButton { get { return ButtonDefault.MosaicButtonPrefix + "MosaicItem" + IconIndex; } }
-        public string TagImage { get { return ButtonDefault.MosaicButtonImagePrefix + "MosaicItem" + IconIndex; } }
-        public string TagBackground { get { return ButtonDefault.MosaicButtonBackgroundPrefix + "MosaicItem" + IconIndex; } }
-        public string TagLabel { get { return ButtonDefault.MosaicButtonLabelPrefix + "MosaicItem" + IconIndex; } }
+        public string TagButton { get { return NamesDefault.MosaicButtonPrefix + "MosaicItem" + IconIndex; } }
+        public string TagImage { get { return NamesDefault.MosaicButtonImagePrefix + "MosaicItem" + IconIndex; } }
+        public string TagBackground { get { return NamesDefault.MosaicButtonBackgroundPrefix + "MosaicItem" + IconIndex; } }
+        public string TagLabel { get { return NamesDefault.MosaicButtonLabelPrefix + "MosaicItem" + IconIndex; } }
 
         public MosaicItem(MosaicTargets target, string title, string description, string icon, bool isOfflineEnabled, int iconIndex)
         {

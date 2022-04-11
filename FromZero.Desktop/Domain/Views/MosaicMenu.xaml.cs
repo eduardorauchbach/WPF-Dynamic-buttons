@@ -164,7 +164,7 @@ namespace FromZero.Desktop.Domain.Views
         {
             foreach (SvgViewbox img in this.FindVisualChilds<SvgViewbox>())
             {
-                if (img.Tag != null && img.Tag.ToString().Contains(ButtonDefault.MosaicButtonImagePrefix))
+                if (img.Tag != null && img.Tag.ToString().Equals(NamesDefault.MosaicButtonImagePrefix))
                 {
                     img.ChangeFill(_viewModel.GlobalProperties.CurrentTheme.IconImageColor);
                 }
@@ -172,7 +172,7 @@ namespace FromZero.Desktop.Domain.Views
 
             foreach (Border bkg in this.FindVisualChilds<Border>())
             {
-                if (bkg.Tag != null && bkg.Tag.ToString().Contains(ButtonDefault.MosaicButtonBackgroundPrefix))
+                if (bkg.Tag != null && bkg.Tag.ToString().Equals(NamesDefault.MosaicButtonBackgroundPrefix))
                 {
                     bkg.Background = _viewModel.GlobalProperties.CurrentTheme.IconBackgroundColor;
                 }
@@ -180,7 +180,7 @@ namespace FromZero.Desktop.Domain.Views
 
             foreach (TextBlock lbl in this.FindVisualChilds<TextBlock>())
             {
-                if (lbl.Tag != null && lbl.Tag.ToString().Contains(ButtonDefault.MosaicButtonLabelPrefix))
+                if (lbl.Tag != null && lbl.Tag.ToString().Equals(NamesDefault.MosaicButtonLabelPrefix))
                 {
                     lbl.Foreground = _viewModel.GlobalProperties.CurrentTheme.IconBackgroundColor;
                 }

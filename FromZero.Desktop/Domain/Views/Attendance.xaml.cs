@@ -1,5 +1,6 @@
 ﻿using FromZero.Desktop.Domain.Helpers;
 using FromZero.Desktop.Domain.ViewModels;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -40,7 +41,7 @@ namespace FromZero.Desktop.Domain.Views
 
         public void Load()
         {
-            txtDemo.Text = this.GetType().Name;
+            //txtDemo.Text = this.GetType().Name;
 
             //ChangeTheme();
         }
@@ -49,9 +50,39 @@ namespace FromZero.Desktop.Domain.Views
 
         #region  Functionality
 
+        private void Commit()
+        {
+            bool ok = true;
+
+            if (!drpCopom.IsRequiredValidation())
+            {
+                ok = false;
+            }
+
+            if (!drpServico.IsRequiredValidation())
+            {
+                ok = false;
+            }
+
+            if (!drpPosicaoAtendimento.IsRequiredValidation())
+            {
+                ok = false;
+            }
+
+            if (ok)
+            {
+                //Faça sua magina
+            }
+        }
+
+        private void Commit(object sender, RoutedEventArgs e)
+        {
+            Commit();
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.BackToMosaicMenu(_viewModel);
+            this.BackToMosaicMenu();
         }
 
         #endregion

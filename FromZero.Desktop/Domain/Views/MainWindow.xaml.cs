@@ -122,7 +122,7 @@ namespace FromZero.Desktop.Domain.Views
         protected void ButtonHighLightOn(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
-            string imageName = button.Tag.ToString().Replace(ButtonDefault.ButtonPrefix, ButtonDefault.ButtonImagePrefix);
+            string imageName = button.Tag.ToString().Replace(NamesDefault.ButtonPrefix, NamesDefault.ButtonImagePrefix);
 
             SvgViewbox img = this.FindVisualChilds<SvgViewbox>().Where(x => x.Tag != null && x.Tag.ToString() == imageName).First();
             img.ChangeFill(new SolidColorBrush(Colors.White));
@@ -131,7 +131,7 @@ namespace FromZero.Desktop.Domain.Views
         protected void ButtonHighLightOff(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
-            string imageName = button.Tag.ToString().Replace(ButtonDefault.ButtonPrefix, ButtonDefault.ButtonImagePrefix);
+            string imageName = button.Tag.ToString().Replace(NamesDefault.ButtonPrefix, NamesDefault.ButtonImagePrefix);
 
             SvgViewbox img = this.FindVisualChilds<SvgViewbox>().Where(x => x.Tag != null && x.Tag.ToString() == imageName).First();
             img.ChangeFill(new SolidColorBrush(Colors.LightGray));

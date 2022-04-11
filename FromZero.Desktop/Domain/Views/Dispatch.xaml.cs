@@ -63,7 +63,7 @@ namespace FromZero.Desktop.Domain.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.BackToMosaicMenu(_viewModel);
+            this.BackToMosaicMenu();
         }
 
         #endregion

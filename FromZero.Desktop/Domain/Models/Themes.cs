@@ -65,6 +65,12 @@ namespace FromZero.Desktop.Domain.Models
             }
         }
 
+        public static class ThemeGlobal
+        {
+            public static Brush ComponentsBorderColors = "#343434".ToBrush();
+            public static Brush ComponentsFontColors = "#343434".ToBrush();
+        }
+
         private static class ThemeConfigurations
         {
             public static class White

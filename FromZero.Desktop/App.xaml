@@ -4,11 +4,35 @@
              xmlns:local="clr-namespace:FromZero.Desktop"
              StartupUri="/Domain/Views/MainWindow.xaml">
     <Application.Resources>
+        <!--Grid-->
+        <Style TargetType="Grid" x:Key="Modal">
+            <Style.Setters>
+                <Setter Property="Background" Value="#E9E9E9"/>
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="2"
+                          Color="Black"
+                          Opacity="1"
+                          BlurRadius="10"/>
+                    </Setter.Value>
+                </Setter>
+            </Style.Setters>
+        </Style>
+        <Style TargetType="Grid" x:Key="ShadowBox">
+            <Setter Property="Height" Value="{Binding ActualHeight, RelativeSource ={RelativeSource AncestorType = {x:Type Window}}}"/>
+            <Setter Property="Width" Value="{Binding ActualWidth, RelativeSource = {RelativeSource AncestorType = {x:Type Window}}}"/>
+            <Setter Property="Opacity" Value="0.2"/>
+            <Setter Property="Background" Value="Black"/>
+        </Style>
+        <!--Label-->
+        <Style TargetType="Label" x:Key="SystemMessages">
+            <Setter Property="FontSize" Value="16" />
+        </Style>
         <!--Text Boxes-->
         <Style TargetType="{x:Type TextBox}">
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="4" />
+                    <Setter Property="CornerRadius" Value="2" />
                 </Style>
             </Style.Resources>
             <Setter Property="Height" Value="25"/>
@@ -22,7 +46,7 @@
         <Style TargetType="{x:Type TextBox}" x:Key="StyleTextDefault">
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="4" />
+                    <Setter Property="CornerRadius" Value="2" />
                 </Style>
             </Style.Resources>
             <Setter Property="BorderBrush" Value="#343434"/>
@@ -36,7 +60,7 @@
         <Style TargetType="{x:Type TextBox}" x:Key="StyleTextError">
             <Style.Resources>
                 <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="4" />
+                    <Setter Property="CornerRadius" Value="2" />
                 </Style>
             </Style.Resources>
             <Setter Property="BorderBrush" Value="Red"/>
@@ -87,8 +111,67 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <!--Buttons-->
+        <Style TargetType="{x:Type Button}">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2"/>
+                </Style>
+            </Style.Resources>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type Button}" x:Key="ButtonBordered">
+            <Setter Property="Background" Value="#E9E9E9"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="2"
+                          Color="Black"
+                          Opacity="0.2"
+                          BlurRadius="4"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="CornerRadius" Value="2"/>
+                    <Setter Property="BorderBrush" Value="#343434"/>
+                </Style>
+            </Style.Resources>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type Button}" x:Key="ButtonFaded">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect ShadowDepth="2"
+                          Color="Black"
+                          Opacity="0.2"
+                          BlurRadius="4"/>
+                </Setter.Value>
+            </Setter>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="2"/>
+                </Style>
+            </Style.Resources>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
         <Style TargetType="{x:Type Button}" x:Key="ButtonClean">
             <Setter Property="Template">
                 <Setter.Value>
@@ -106,14 +189,6 @@
             </Style.Triggers>
         </Style>
 
-        <Style TargetType="{x:Type Button}">
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Cursor" Value="Hand"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-
         <!--ComboBox-->
         <Style x:Key="StyleComboBoxTextBoxDefault" TargetType="{x:Type TextBox}">
             <Setter Property="Foreground" Value="#343434"/>
@@ -121,7 +196,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
                         <Grid Margin="0 0 -1 0">
-                            <Border CornerRadius="4,0,0,4"
+                            <Border CornerRadius="2,0,0,2"
                             BorderThickness="1 1 0 1"
                             Background="{TemplateBinding Background}"
                                 BorderBrush="#343434" Margin="0">
@@ -143,7 +218,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
                         <Grid>
-                            <Border CornerRadius="0,4,4,0"
+                            <Border CornerRadius="0,2,2,0"
                             BorderThickness="0 1 1 1"
                             Background="White"
                                 BorderBrush="#343434">
@@ -201,7 +276,7 @@
                                     <Border 
                                     x:Name="DropDownBorder"
                                     BorderThickness="1"
-                                    CornerRadius="5"
+                                    CornerRadius="2"
                                     Background="Azure"
                                     BorderBrush="#343434"/>
                                     <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
@@ -221,7 +296,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
                         <Grid Margin="0 0 -1 0">
-                            <Border CornerRadius="4,0,0,4"
+                            <Border CornerRadius="2,0,0,2"
                             BorderThickness="1 1 0 1"
                             Background="{TemplateBinding Background}"
                                 BorderBrush="Red" Margin="0">
@@ -244,7 +319,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
                         <Grid>
-                            <Border CornerRadius="0,4,4,0"
+                            <Border CornerRadius="0,2,2,0"
                             BorderThickness="0 1 1 1"
                             Background="White"
                                 BorderBrush="Red">
@@ -256,7 +331,7 @@
             </Setter>
         </Style>
         <Style TargetType="{x:Type ComboBox}" x:Key="StyleComboError">
-            <Setter Property="Height" Value="25"/>            
+            <Setter Property="Height" Value="25"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ComboBox}">
@@ -302,7 +377,7 @@
                                     <Border 
                                     x:Name="DropDownBorder"
                                     BorderThickness="1"
-                                    CornerRadius="5"
+                                    CornerRadius="2"
                                     Background="Azure"
                                     BorderBrush="#343434"/>
                                     <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">

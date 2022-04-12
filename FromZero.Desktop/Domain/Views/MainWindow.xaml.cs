@@ -119,6 +119,11 @@ namespace FromZero.Desktop.Domain.Views
 
         #region Menu
 
+        private void ToggleExitModal()
+        {
+            ModalExit.Visibility = ModalExit.Visibility == Visibility.Visible ? Visibility.Hidden : Visibility.Visible;
+        }
+
         protected void ButtonHighLightOn(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
@@ -135,6 +140,15 @@ namespace FromZero.Desktop.Domain.Views
 
             SvgViewbox img = this.FindVisualChilds<SvgViewbox>().Where(x => x.Tag != null && x.Tag.ToString() == imageName).First();
             img.ChangeFill(new SolidColorBrush(Colors.LightGray));
+        }
+
+        protected void ToggleExitModal(object sender, RoutedEventArgs e)
+        {
+            ToggleExitModal();
+        }
+        protected void Exit(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         #endregion

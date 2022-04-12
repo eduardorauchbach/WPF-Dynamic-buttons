@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FromZero.Desktop.Domain.Views" xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="1000">
     <Grid x:Name="mainGrid">
         <Grid VerticalAlignment="Top" Height="70" Width="300" Margin="0,0,0,0">
             <TextBox Width="300" Height="30" KeyUp="MosaicFilterTrigger" Name="txtMosaicFilter" Style="{StaticResource PlaceHolder}" Tag="Pequisar"/>
@@ -16,17 +16,17 @@
                 <ItemsPanelTemplate>
                     <Grid x:Name="itemsControlDefinition">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="110" />
-                            <RowDefinition Height="110" />
-                            <RowDefinition Height="110" />
+                            <RowDefinition Height="120" />
+                            <RowDefinition Height="120" />
+                            <RowDefinition Height="120" />
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions >
-                            <ColumnDefinition Width="140" />
-                            <ColumnDefinition Width="140" />
-                            <ColumnDefinition Width="140" />
-                            <ColumnDefinition Width="140" />
-                            <ColumnDefinition Width="140" />
-                            <ColumnDefinition Width="140" />
+                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="160" />
+                            <ColumnDefinition Width="160" />
                         </Grid.ColumnDefinitions>
                     </Grid>
                 </ItemsPanelTemplate>

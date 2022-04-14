@@ -54,17 +54,17 @@ namespace FromZero.Desktop.Domain.Views
         {
             bool ok = true;
 
-            if (!drpCopom.IsRequiredValidation())
+            if (!drpCopom.IsRequiredValidation("aaaaaaaaaaaa", lblCopom))
             {
                 ok = false;
             }
 
-            if (!drpServico.IsRequiredValidation())
+            if (!drpServico.IsRequiredValidation("aaaaaaaaaaaa", lblServico))
             {
                 ok = false;
             }
 
-            if (!drpPosicaoAtendimento.IsRequiredValidation())
+            if (!drpPosicaoAtendimento.IsRequiredValidation("aaaaaaaaaaaa", lblPosicaoAtendimento))
             {
                 ok = false;
             }

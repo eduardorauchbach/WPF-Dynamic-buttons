@@ -19,7 +19,7 @@ namespace FromZero.Desktop.Domain.Helpers
         private static readonly Style StyleComboDefault = App.Current.FindResource("StyleComboDefault") as Style;
         private static readonly Style StyleComboError = App.Current.FindResource("StyleComboError") as Style;
 
-        public static bool IsRequiredValidation(this Control control, string? message = null)
+        public static bool IsRequiredValidation(this Control control, string? message = null, Label? label = null)
         {
             bool result = true;
 
@@ -39,6 +39,11 @@ namespace FromZero.Desktop.Domain.Helpers
 
                 cmb.Style = result ? StyleComboDefault : StyleComboError;
                 cmb.ToolTip = result ? null : message;
+            }
+
+            if (label != null)
+            {
+                label.Content = result ? "" : message;
             }
 
             return result;

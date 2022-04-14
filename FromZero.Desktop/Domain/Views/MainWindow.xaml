@@ -95,7 +95,7 @@
 
                 </Grid>
                 <Grid Width="350" Height="150" Style="{StaticResource Modal}" Opacity="1" Panel.ZIndex="1010">
-                    <Label Content="Deseja sair do sistema de atendimento?" HorizontalAlignment="Center" Margin="0 20 0 0" Style="{StaticResource SystemMessages}"></Label>
+                    <Label Content="Deseja sair do sistema de atendimento?" HorizontalAlignment="Center" Margin="0 20 0 0" Style="{StaticResource SystemMessage}"></Label>
                     <Grid VerticalAlignment="Bottom" Margin="30" Width="200">
                         <Button HorizontalAlignment="Left" Content="NÃO" Click="ToggleExitModal" Style="{StaticResource ButtonBordered}" Width="60" Height="30"></Button>
                         <Button HorizontalAlignment="right" Content="SIM"  Click="Exit" Style="{StaticResource ButtonFaded}" Width="60" Height="30"></Button>

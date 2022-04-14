@@ -14,6 +14,7 @@
                 <ComboBoxItem>ComboBox Item #2</ComboBoxItem>
                 <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
             </ComboBox>
+            <Label Name="lblCopom" Margin="0 60 0 0" Style="{StaticResource ErrorMessage}" Padding="10 5 5 0"></Label>
         </Grid>
         <Grid HorizontalAlignment="Left" VerticalAlignment="top" Width="200" Margin="200 0 0 0">
             <Label Tag="Theme" Content="Serviço" FontWeight="Bold"></Label>
@@ -22,6 +23,7 @@
                 <ComboBoxItem>ComboBox Item #2</ComboBoxItem>
                 <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
             </ComboBox>
+            <Label Name="lblServico" Margin="0 60 0 0" Style="{StaticResource ErrorMessage}" Padding="10 5 5 0"></Label>
         </Grid>
         <Grid HorizontalAlignment="Left" VerticalAlignment="top" Width="220" Margin="400 0 0 0">
             <Label Tag="Theme" Content="Posição de atendimento (P.A)" FontWeight="Bold"></Label>
@@ -30,6 +32,7 @@
                 <ComboBoxItem>ComboBox Item #2</ComboBoxItem>
                 <ComboBoxItem>ComboBox Item #3</ComboBoxItem>
             </ComboBox>
+            <Label Name="lblPosicaoAtendimento" Margin="0 60 0 0" Style="{StaticResource ErrorMessage}" Padding="10 5 5 0"></Label>
         </Grid>
         <Grid HorizontalAlignment="Left" VerticalAlignment="top" Width="160" Margin="630 0 0 0">
             <Button Tag="Theme" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 30 0 0" Height="25" Width="100"

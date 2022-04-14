@@ -25,8 +25,12 @@
             <Setter Property="Background" Value="Black"/>
         </Style>
         <!--Label-->
-        <Style TargetType="Label" x:Key="SystemMessages">
+        <Style TargetType="Label" x:Key="SystemMessage">
             <Setter Property="FontSize" Value="16" />
+        </Style>
+        <Style TargetType="Label" x:Key="ErrorMessage">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="Red"/>
         </Style>
         <!--Text Boxes-->
         <Style TargetType="{x:Type TextBox}">
@@ -73,21 +77,21 @@
 
         <Style x:Key="PlaceHolder" TargetType="{x:Type TextBox}">
             <Style.Resources>
-                    <Style TargetType="{x:Type TextBox}">
-                        <Style.Resources>
-                            <Style TargetType="{x:Type Border}">
-                                <Setter Property="CornerRadius" Value="2" />
-                            </Style>
-                        </Style.Resources>
-                        <Setter Property="Height" Value="25"/>
-                        <Setter Property="BorderBrush" Value="#343434"/>
-                        <Setter Property="Foreground" Value="#343434"/>
-                        <Setter Property="FontSize" Value="14"/>
-                        <Setter Property="VerticalContentAlignment" Value="Center"/>
-                        <Setter Property="Padding" Value="5 0 0 0"/>
-                    </Style>
-                </Style.Resources>
-                <Setter Property="Template">
+                <Style TargetType="{x:Type TextBox}">
+                    <Style.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="2" />
+                        </Style>
+                    </Style.Resources>
+                    <Setter Property="Height" Value="25"/>
+                    <Setter Property="BorderBrush" Value="#343434"/>
+                    <Setter Property="Foreground" Value="#343434"/>
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="Padding" Value="5 0 0 0"/>
+                </Style>
+            </Style.Resources>
+            <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
                         <Grid>
@@ -207,6 +211,7 @@
         <!--ComboBox-->
         <Style x:Key="StyleComboBoxTextBoxDefault" TargetType="{x:Type TextBox}">
             <Setter Property="Foreground" Value="#343434"/>
+            <Setter Property="IsEnabled" Value="False"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
@@ -280,20 +285,26 @@
                                       Margin="5,0,0,0"/>
                             <Popup Name="Popup"
                                Placement="Bottom"
+                               VerticalOffset="-3"
                                IsOpen="{TemplateBinding IsDropDownOpen}"
                                AllowsTransparency="True" 
                                Focusable="False"
-                               PopupAnimation="Slide">
+                               PopupAnimation="Slide" >
                                 <Grid Name="DropDown"
                                   SnapsToDevicePixels="True"                
                                   MinWidth="{TemplateBinding ActualWidth}"
                                   MaxHeight="{TemplateBinding MaxDropDownHeight}">
                                     <Border 
                                     x:Name="DropDownBorder"
-                                    BorderThickness="1"
-                                    CornerRadius="2"
+                                    BorderThickness="1 0 1 1"
+                                    CornerRadius="0 0 2 2"
                                     Background="Azure"
-                                    BorderBrush="#343434"/>
+                                    BorderBrush="#343434">
+                                        <Border 
+                                        BorderThickness="0 10 0 0"
+                                        CornerRadius="0 0 2 2"
+                                        BorderBrush="White"  />
+                                    </Border>
                                     <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
                                         <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
                                     </ScrollViewer>
@@ -307,6 +318,7 @@
 
         <Style x:Key="StyleComboBoxTextBoxError" TargetType="{x:Type TextBox}">
             <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="IsEnabled" Value="False"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
@@ -381,20 +393,26 @@
                                       Margin="5,0,0,0"/>
                             <Popup Name="Popup"
                                Placement="Bottom"
+                               VerticalOffset="-3"
                                IsOpen="{TemplateBinding IsDropDownOpen}"
                                AllowsTransparency="True" 
                                Focusable="False"
-                               PopupAnimation="Slide">
+                               PopupAnimation="Slide" >
                                 <Grid Name="DropDown"
                                   SnapsToDevicePixels="True"                
                                   MinWidth="{TemplateBinding ActualWidth}"
                                   MaxHeight="{TemplateBinding MaxDropDownHeight}">
                                     <Border 
                                     x:Name="DropDownBorder"
-                                    BorderThickness="1"
-                                    CornerRadius="2"
+                                    BorderThickness="1 0 1 1"
+                                    CornerRadius="0 0 2 2"
                                     Background="Azure"
-                                    BorderBrush="#343434"/>
+                                    BorderBrush="Red">
+                                        <Border 
+                                        BorderThickness="0 10 0 0"
+                                        CornerRadius="0 0 2 2"
+                                        BorderBrush="White"  />
+                                    </Border>
                                     <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
                                         <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
                                     </ScrollViewer>

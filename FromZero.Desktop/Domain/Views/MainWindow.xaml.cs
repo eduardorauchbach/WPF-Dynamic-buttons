@@ -57,7 +57,7 @@ namespace FromZero.Desktop.Domain.Views
         {
             SetUserOnlineMode(true); //Fixo, diz se esta online ou não
 
-            _viewModel.GlobalProperties.CurrentUser = new("SOUZA", "000.000.000-00", "1. TEN PM", "8.BPM/M");
+            _viewModel.GlobalProperties.CurrentUser = new("Rauchbach", "000.000.000-00", "LUCK", "666");
             _viewModel.GlobalProperties.CurrentTheme = new(ThemeType.White);
         }
 

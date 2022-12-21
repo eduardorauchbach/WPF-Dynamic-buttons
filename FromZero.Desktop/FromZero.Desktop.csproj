@@ -12,20 +12,17 @@
     <None Remove="Domain\Component\Icons\arvore_de_decisoes.svg" />
     <None Remove="Domain\Component\Icons\atendimento.svg" />
     <None Remove="Domain\Component\Icons\bloco_de_notas.svg" />
-    <None Remove="Domain\Component\Icons\cepol.svg" />
     <None Remove="Domain\Component\Icons\consultas.svg" />
-    <None Remove="Domain\Component\Icons\copom_online.svg" />
     <None Remove="Domain\Component\Icons\despacho.svg" />
     <None Remove="Domain\Component\Icons\gerenciamento_de_usuarios_e_apps.svg" />
     <None Remove="Domain\Component\Icons\icone_modo_noturno.svg" />
-    <None Remove="Domain\Component\Icons\mapa_forca.svg" />
     <None Remove="Domain\Component\Icons\nota_urgente.svg" />
     <None Remove="Domain\Component\Icons\ocorrencias.svg" />
     <None Remove="Domain\Component\Icons\pesquisa.svg" />
-    <None Remove="Domain\Component\Icons\registro_de_ocorrencias.svg" />
     <None Remove="Domain\Component\Icons\relatorios.svg" />
     <None Remove="Domain\Component\Icons\supervisao.svg" />
     <None Remove="Domain\Component\Icons\web_aia.svg" />
+    <None Remove="Domain\Component\Logos\logo.svg" />
     <None Remove="Domain\Component\Resources\background_cabecalho.png" />
     <None Remove="Domain\Component\Resources\background_cabecalho.svg" />
     <None Remove="Domain\Component\Resources\logout.svg" />
@@ -57,13 +54,7 @@
     <Resource Include="Domain\Component\Icons\bloco_de_notas.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Domain\Component\Icons\cepol.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Domain\Component\Icons\consultas.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Domain\Component\Icons\copom_online.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Domain\Component\Icons\despacho.svg">
@@ -72,10 +63,10 @@
     <Resource Include="Domain\Component\Icons\gerenciamento_de_usuarios_e_apps.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Domain\Component\Resources\icone_modo_noturno.svg">
+    <Resource Include="Domain\Component\Logos\logo.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Domain\Component\Icons\mapa_forca.svg">
+    <Resource Include="Domain\Component\Resources\icone_modo_noturno.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Domain\Component\Icons\nota_urgente.svg">
@@ -85,9 +76,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Domain\Component\Icons\pesquisa.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Domain\Component\Icons\registro_de_ocorrencias.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Domain\Component\Icons\relatorios.svg">
@@ -112,12 +100,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Domain\Component\Resources\pesquisa.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Domain\Component\Logos\policia_logo.svg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Domain\Component\Logos\siopm_logo.svg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Domain\Component\User\User.png">

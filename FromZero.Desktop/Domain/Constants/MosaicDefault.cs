@@ -14,14 +14,10 @@ namespace FromZero.Desktop.Domain.Constants
             new MosaicItem(MosaicTargets.UrgentNote, "Nota Urgente", "", "nota_urgente.svg", false, 5),
             new MosaicItem(MosaicTargets.Occurrences, "Ocorrências", "", "ocorrencias.svg", false, 6),
             new MosaicItem(MosaicTargets.Queries, "Consultas", "", "consultas.svg", false, 7),
-            new MosaicItem(MosaicTargets.CEPOL, "CEPOL", "", "cepol.svg", true, 8),
-            new MosaicItem(MosaicTargets.AppUserManagment, "Gerenciamento de Usuários e Apps", "", "gerenciamento_de_usuarios_e_apps.svg", false, 9),
-            new MosaicItem(MosaicTargets.Reports, "Relatórios", "", "relatorios.svg", false, 10),
-            new MosaicItem(MosaicTargets.DecisonTree, "Árvore de Decisões", "", "arvore_de_decisoes.svg", true, 11),
-            new MosaicItem(MosaicTargets.OccurrenceRegister, "Registro de Ocorrência", "", "registro_de_ocorrencias.svg", true, 12),
-            new MosaicItem(MosaicTargets.WebAIA, "Web AIA", "", "web_aia.svg", true, 13),
-            new MosaicItem(MosaicTargets.COPOM, "COPOM Online", "", "copom_online.svg", false, 14),
-            new MosaicItem(MosaicTargets.ForceMap, "Mapa Força", "", "mapa_forca.svg", true, 15),
+            new MosaicItem(MosaicTargets.AppUserManagment, "Gerenciamento de Usuários e Apps", "", "gerenciamento_de_usuarios_e_apps.svg", false, 8),
+            new MosaicItem(MosaicTargets.Reports, "Relatórios", "", "relatorios.svg", false, 9),
+            new MosaicItem(MosaicTargets.DecisonTree, "Árvore de Decisões", "", "arvore_de_decisoes.svg", true, 10),
+            new MosaicItem(MosaicTargets.WebAIA, "Web AIA", "", "web_aia.svg", true, 11),
         };
 
         public enum MosaicTargets

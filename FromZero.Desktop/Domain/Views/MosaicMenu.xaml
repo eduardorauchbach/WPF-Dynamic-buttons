@@ -9,7 +9,9 @@
     <Grid x:Name="mainGrid">
         <Grid VerticalAlignment="Top" Height="70" Width="300" Margin="0,0,0,0">
             <TextBox Width="300" Height="30" KeyUp="MosaicFilterTrigger" Name="txtMosaicFilter" Style="{StaticResource PlaceHolder}" Tag="Pequisar"/>
-            <svgc:SvgCanvas HorizontalAlignment="Right" VerticalAlignment="Center"  Source="/Domain/Component/Resources/pesquisa.svg" ></svgc:SvgCanvas>
+            <ContentControl HorizontalAlignment="Right" VerticalAlignment="Center" Height="20" Margin="0,0,2,0">
+                <svgc:SvgCanvas Source="/Domain/Component/Resources/pesquisa.svg" ></svgc:SvgCanvas>
+            </ContentControl>
         </Grid>
         <ItemsControl x:Name="itemsControl" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,80,0,0">
             <ItemsControl.ItemsPanel>

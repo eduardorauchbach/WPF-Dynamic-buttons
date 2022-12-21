@@ -154,6 +154,7 @@ namespace FromZero.Desktop.Domain.Views
 
             ContentControl parent = (ContentControl)this.Parent;
             parent.Content = _viewModel.GlobalProperties.CurrentControl;
+            ((UserControl)parent.Content).SetTheme();
         }
 
         #endregion
